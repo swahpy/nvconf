@@ -13,6 +13,20 @@ return {
     end,
   },
 
+  {
+    "echasnovski/mini.splitjoin",
+    version = false,
+    event = "BufRead",
+    config = function()
+      require("mini.splitjoin").setup {
+        mappings = {
+          toggle = "gS",
+          split = "gs",
+          join = "gj",
+        },
+      }
+    end,
+  },
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {
