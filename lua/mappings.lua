@@ -10,6 +10,28 @@ map("i", "jk", "<ESC>")
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr><Esc>")
 map({ "n", "i", "v" }, "<A-w>", "<cmd> w <cr><Esc>")
 
+-- move
+map({ "n", "i" }, "<C-h>", "<C-w>h", { desc = "switch window left" })
+map({ "n", "i" }, "<C-l>", "<C-w>l", { desc = "switch window right" })
+map({ "n", "i" }, "<C-j>", "<C-w>j", { desc = "switch window down" })
+map({ "n", "i" }, "<C-k>", "<C-w>k", { desc = "switch window up" })
+map("t", "<C-h>", "<C-\\><C-N><C-w>h", { desc = "switch window left" })
+map("t", "<C-l>", "<C-\\><C-N><C-w>l", { desc = "switch window right" })
+map("t", "<C-j>", "<C-\\><C-N><C-w>j", { desc = "switch window down" })
+map("t", "<C-k>", "<C-\\><C-N><C-w>k", { desc = "switch window up" })
+
+map("i", "<A-h>", "<Left>", { desc = "move left" })
+map("i", "<A-l>", "<Right>", { desc = "move right" })
+map("i", "<A-j>", "<Down>", { desc = "move down" })
+map("i", "<A-k>", "<Up>", { desc = "move up" })
+
+-- nvimtree
+map({"n", "t"}, "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
+map({"n", "t"}, "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
+
+-- terminal
+map("t", "<C-t>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
+
 -- tabufline keymaps
 local tabs = require "nvchad.tabufline"
 
