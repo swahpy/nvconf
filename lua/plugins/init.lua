@@ -1,4 +1,11 @@
 return {
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = require "configs.treesitter",
+  },
+
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
@@ -44,15 +51,6 @@ return {
         end,
       },
     },
-    opts = require("configs.nvim-cmp")
+    opts = require "configs.nvim-cmp",
   },
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
 }
