@@ -14,4 +14,15 @@ M.base46 = {
   -- },
 }
 
+M.term = {
+  sizes = { sp = 0.4, vsp = 0.4, ["bo sp"] = 0.4, ["bo vsp"] = 0.4 },
+  float = {
+    row = 0.2,
+    col = 0.13,
+    width = 0.75,
+    height = 0.6,
+    border = "single",
+  },
+}
+
 return M
