@@ -12,7 +12,6 @@ return {
     opts = require "configs.conform",
   },
 
-  -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -37,6 +36,7 @@ return {
 
   {
     "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
     dependencies = {
       {
         "hrsh7th/cmp-cmdline",
@@ -51,6 +51,11 @@ return {
         end,
       },
     },
-    opts = require "configs.nvim-cmp",
+
+    config = function(_, opts)
+      local options = require "configs.nvim-cmp"
+      local cmp = require "cmp"
+      cmp.setup(vim.tbl_extend("force", opts, options))
+    end,
   },
 }
