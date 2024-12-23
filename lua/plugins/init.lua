@@ -51,6 +51,8 @@ return {
         end,
       },
     },
-    opts = require "configs.nvim-cmp",
+    opts = function()
+      return require "configs.nvim-cmp"
+    end,
   },
 }
