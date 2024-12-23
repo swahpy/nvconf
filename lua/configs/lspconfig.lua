@@ -5,7 +5,7 @@ nvlsp.defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "basedpyright" }
+local servers = { "html", "cssls", "basedpyright", "ruff" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -16,12 +16,6 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- configuring single server, example: typescript
--- lspconfig.ts_ls.setup {
---   on_attach = nvlsp.on_attach,
---   on_init = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
--- }
 lspconfig.basedpyright.setup {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
@@ -46,6 +40,18 @@ lspconfig.basedpyright.setup {
     },
     python = {
       pythonPath = "./venv/bin/python",
+    },
+  },
+}
+
+lspconfig.ruff.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  trace = "messages",
+  init_options = {
+    settings = {
+      logLevel = "debug",
     },
   },
 }
