@@ -58,4 +58,10 @@ return {
       cmp.setup(vim.tbl_extend("force", opts, options))
     end,
   },
+
+  {
+    "kawre/neotab.nvim",
+    event = "InsertCharPre",
+    config = true,
+  },
 }
