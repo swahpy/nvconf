@@ -5,7 +5,13 @@ nvlsp.defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "basedpyright", "ruff" }
+local servers = {
+  "cssls",
+  "basedpyright",
+  "emmet_language_server",
+  "html",
+  "ruff",
+}
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
