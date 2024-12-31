@@ -26,8 +26,8 @@ map("i", "<A-j>", "<Down>", { desc = "move down" })
 map("i", "<A-k>", "<Up>", { desc = "move up" })
 
 -- nvimtree
-map({"n", "t"}, "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
-map({"n", "t"}, "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
+map({ "n", "t" }, "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
+map({ "n", "t" }, "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
 
 -- terminal
 map("t", "<C-t>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
@@ -49,3 +49,9 @@ for i = 1, 9, 1 do
     end
   end)
 end
+map("n", "<S-tab>", function()
+  tabs.move_buf(-1)
+end, { desc = "Move buf left" })
+map("n", "<Tab>", function()
+  tabs.move_buf(1)
+end, { desc = "Move buf right" })
