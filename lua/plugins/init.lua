@@ -20,17 +20,11 @@ return {
   },
 
   {
-    "echasnovski/mini.splitjoin",
+    "echasnovski/mini.nvim",
     version = false,
-    event = "BufRead",
+    event = "VeryLazy",
     config = function()
-      require("mini.splitjoin").setup {
-        mappings = {
-          toggle = "gS",
-          split = "gs",
-          join = "gj",
-        },
-      }
+      require "configs.mini"
     end,
   },
 
@@ -69,6 +63,9 @@ return {
     "folke/flash.nvim",
     event = "VeryLazy",
     opts = {
+      search = {
+        multi_window = true,
+      },
       modes = {
         -- f, t, F, T with labels
         char = {
