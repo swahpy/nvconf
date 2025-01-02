@@ -8,6 +8,7 @@ local lspconfig = require "lspconfig"
 local servers = {
   "cssls",
   "basedpyright",
+  "biome",
   "emmet_language_server",
   "html",
   "ruff",
@@ -22,6 +23,19 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- biome
+local lsputil = require "lspconfig.util"
+lspconfig.biome.setup {
+  root_dir = function(fname)
+    return lsputil.root_pattern("biome.json", "biome.jsonc")(fname)
+      or lsputil.find_package_json_ancestor(fname)
+      or lsputil.find_node_modules_ancestor(fname)
+      or lsputil.find_git_ancestor(fname)
+  end,
+  single_file_support = true,
+}
+
+-- basedpyright
 lspconfig.basedpyright.setup {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
@@ -50,6 +64,7 @@ lspconfig.basedpyright.setup {
   },
 }
 
+-- ruff
 lspconfig.ruff.setup {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
