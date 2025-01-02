@@ -45,11 +45,8 @@ return {
         end,
       },
     },
-
-    config = function(_, opts)
-      local options = require "configs.nvim-cmp"
-      local cmp = require "cmp"
-      cmp.setup(vim.tbl_extend("force", opts, options))
+    opts = function(_, conf)
+      conf.mapping = require "configs.nvim-cmp"
     end,
   },
 
@@ -117,5 +114,18 @@ return {
         desc = "Add cursor and jump to next cword",
       },
     },
+  },
+
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    cmd = "Telescope",
+    opts = function(_, conf)
+      conf.defaults.mappings.i = {
+        ["<A-j>"] = "move_selection_next",
+        ["<A-k>"] = "move_selection_previous",
+      }
+      return conf
+    end,
   },
 }
