@@ -98,7 +98,6 @@ return {
         mode = { "n", "i" },
         desc = "Add or remove cursor",
       },
-      { "mca", "<Cmd>MultipleCursorsAddMatches<CR>", mode = { "n", "x" }, desc = "Add cursors to cword" },
       {
         "mcA",
         function()
@@ -106,12 +105,6 @@ return {
         end,
         mode = { "n", "x" },
         desc = "Align cursors vertically",
-      },
-      {
-        "mcm",
-        "<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
-        mode = { "n", "x" },
-        desc = "Add cursor and jump to next cword",
       },
     },
   },
