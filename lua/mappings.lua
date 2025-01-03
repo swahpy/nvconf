@@ -31,6 +31,9 @@ map({ "n", "t" }, "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focu
 
 -- terminal
 map("t", "<C-t>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
+map({ "n", "t" }, "<A-->", function()
+  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
+end, { desc = "terminal toggleable horizontal term" })
 
 -- tabufline keymaps
 local tabs = require "nvchad.tabufline"
@@ -55,3 +58,8 @@ end, { desc = "Move buf left" })
 map("n", "<Tab>", function()
   tabs.move_buf(1)
 end, { desc = "Move buf right" })
+
+-- disable mappings
+local nomap = vim.keymap.del
+
+nomap({ "n", "t" }, "<A-h>")

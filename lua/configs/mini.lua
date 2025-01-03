@@ -71,6 +71,8 @@ ai.setup {
   },
 }
 
+require("mini.move").setup()
+
 require("mini.splitjoin").setup {
   mappings = {
     toggle = "gS",
