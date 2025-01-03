@@ -31,6 +31,7 @@ map({ "n", "t" }, "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focu
 
 -- terminal
 map("t", "<C-t>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
+map("t", "jk", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 map({ "n", "t" }, "<A-->", function()
   require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
 end, { desc = "terminal toggleable horizontal term" })
