@@ -71,6 +71,26 @@ ai.setup {
   },
 }
 
+require("mini.basics").setup {
+  -- Options. Set to `false` to disable.
+  options = {
+    -- Extra UI features ('winblend', 'cmdheight=0', ...)
+    extra_ui = true,
+
+    -- Presets for window borders ('single', 'double', ...)
+    win_borders = "single",
+  },
+
+  -- Mappings. Set to `false` to disable.
+  mappings = {
+    -- Window navigation with <C-hjkl>, resize with <C-arrow>
+    windows = true,
+
+    -- Move cursor in Insert, Command, and Terminal mode with <M-hjkl>
+    move_with_alt = true,
+  },
+}
+
 require("mini.move").setup()
 
 local session = require "mini.sessions"
