@@ -119,3 +119,12 @@ require("mini.surround").setup {
   respect_selection_type = true,
   search_method = "cover_or_next",
 }
+
+local trim = require "mini.trailspace"
+trim.setup {}
+map("n", "<leader>ts", function()
+  trim.trim()
+end, { desc = "Trim all trailing whitespaces" })
+map("n", "<leader>tl", function()
+  trim.trim_last_lines()
+end, { desc = "Trim all trailing empty lines" })
