@@ -22,7 +22,7 @@ return {
   {
     "echasnovski/mini.nvim",
     version = false,
-    event = "VeryLazy",
+    lazy = false,
     config = function()
       require "configs.mini"
     end,

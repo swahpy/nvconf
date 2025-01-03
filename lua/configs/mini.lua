@@ -73,6 +73,39 @@ ai.setup {
 
 require("mini.move").setup()
 
+local session = require "mini.sessions"
+session.setup {
+  -- Whether to read default session if Neovim opened without file arguments
+  autoread = true,
+  -- Whether to print session path after action
+  verbose = { read = true },
+}
+local map = vim.keymap.set
+map("n", "<leader>ps", function()
+  session.select()
+end, { desc = "Pick a session" })
+map("n", "<leader>sd", function()
+  local sessions = {}
+  local keystr = ""
+  local n = 0
+  for k, _ in pairs(session.detected) do
+    n = n + 1
+    sessions[n] = k
+    keystr = keystr .. n .. ": " .. k .. "\n"
+  end
+  local numstr =
+    vim.fn.input("Below are current sessions, please select the one to delete(1/2/...):\n" .. keystr .. "\n> ")
+  if numstr == "" then
+    return
+  end
+  local num = tonumber(numstr)
+  if num <= n then
+    session.delete(sessions[num])
+  else
+    print "Wrong session number!"
+  end
+end, { desc = "Delete a session" })
+
 require("mini.splitjoin").setup {
   mappings = {
     toggle = "gS",
