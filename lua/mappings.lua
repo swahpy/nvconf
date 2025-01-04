@@ -25,6 +25,9 @@ map("i", "<A-l>", "<Right>", { desc = "move right" })
 map("i", "<A-j>", "<Down>", { desc = "move down" })
 map("i", "<A-k>", "<Up>", { desc = "move up" })
 
+map("x", "<A-h>", [[<Cmd>lua MiniMove.move_selection('left')<CR>]], { desc = "Move left" })
+map("n", "<A-h>", [[<Cmd>lua MiniMove.move_line('left')<CR>]], { desc = "Move line left" })
+
 -- nvimtree
 map({ "n", "t" }, "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 map({ "n", "t" }, "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
@@ -59,8 +62,3 @@ end, { desc = "Move buf left" })
 map("n", "<Tab>", function()
   tabs.move_buf(1)
 end, { desc = "Move buf right" })
-
--- disable mappings
-local nomap = vim.keymap.del
-
-nomap({ "n", "t" }, "<A-h>")
