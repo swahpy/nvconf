@@ -91,12 +91,24 @@ require("mini.basics").setup {
   },
 }
 
+local hipatterns = require "mini.hipatterns"
+hipatterns.setup {
+  highlighters = {
+    -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
+    fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
+    hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
+    todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
+    note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
+
+    -- Highlight hex color strings (`#rrggbb`) using that color
+    hex_color = hipatterns.gen_highlighter.hex_color(),
+  },
+}
+
 require("mini.move").setup()
 
 local session = require "mini.sessions"
 session.setup {
-  -- Whether to read default session if Neovim opened without file arguments
-  autoread = true,
   -- Whether to print session path after action
   verbose = { read = true },
 }
