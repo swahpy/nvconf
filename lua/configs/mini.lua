@@ -44,7 +44,7 @@ ai.setup {
     U = ai.gen_spec.function_call { name_pattern = "[%w_]" }, -- without dot in function name
     h = { "%f[%S][%w%p]+%f[%s]", "^().*()$" }, -- match content between space
     -- from mini.extra
-    b = gen_ai_spec.buffer(),
+    B = gen_ai_spec.buffer(),
     D = gen_ai_spec.diagnostic(),
     I = gen_ai_spec.indent(),
     L = gen_ai_spec.line(),
