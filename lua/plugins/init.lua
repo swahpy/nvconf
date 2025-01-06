@@ -110,6 +110,41 @@ return {
   },
 
   {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    opts = {
+      file_types = { "markdown" },
+      render_modes = { "n", "c", "t" },
+      heading = {
+        border = true,
+        icons = { " ", " ", " ", " ", " ", " " },
+        signs = { "󰫎 " },
+        width = "block",
+        above = "",
+        below = "",
+      },
+      code = {
+        width = "block",
+        above = "~",
+        below = "~",
+      },
+      link = {
+        custom = {
+          web = { pattern = "^http[s]?://", icon = " ", highlight = "Blue" },
+          python = { pattern = "%.py$", icon = "󰌠 ", highlight = "Green" },
+          local_file = { pattern = "%.md$", icon = "󱅷 ", highlight = "Aqua" },
+        },
+      },
+    },
+    keys = {
+      { "<leader>rm", [[ <cmd> RenderMarkdown <cr> ]], desc = "Render Markdown file" },
+    },
+  },
+
+  {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     cmd = "Telescope",
