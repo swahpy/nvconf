@@ -79,3 +79,6 @@ end
 map("n", "<leader>cb", function()
   toggle_checkbox()
 end, { desc = "toggle checkbox" })
+
+-- lsp related
+map({ "n", "v" }, "gr", [[ <cmd> Telescope lsp_references <cr>]], { desc = "open telescope lsp references" })
