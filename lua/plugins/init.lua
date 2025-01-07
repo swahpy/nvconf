@@ -47,6 +47,18 @@ return {
     },
     opts = function(_, conf)
       conf.mapping = require "configs.nvim-cmp"
+      table.insert(
+        conf.sources,
+        1,
+        {
+          name = "nvim_lsp",
+          option = {
+            markdown_oxide = {
+              keyword_pattern = [[\(\k\| \|\/\|#\)\+]],
+            },
+          },
+        }
+      )
     end,
   },
 

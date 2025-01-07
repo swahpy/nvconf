@@ -10,6 +10,7 @@ local servers = {
   "biome",
   "emmet_language_server",
   "html",
+  "markdown-oxide",
   "ruff",
 }
 
@@ -21,6 +22,62 @@ for _, lsp in ipairs(servers) do
     capabilities = nvlsp.capabilities,
   }
 end
+-- markdown-oxide
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+lspconfig.markdown_oxide.setup {
+  -- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
+  -- Create Unresolved File code action, resolving completions for unindexed code blocks, ...
+  capabilities = vim.tbl_deep_extend("force", capabilities, {
+    workspace = {
+      didChangeWatchedFiles = {
+        dynamicRegistration = true,
+      },
+    },
+  }),
+  on_attach = function(client, bufnr)
+    -- setup Markdown Oxide daily note commands
+    if client.name == "markdown_oxide" then
+      vim.api.nvim_create_user_command("Daily", function(args)
+        local input = args.args
+
+        vim.lsp.buf.execute_command { command = "jump", arguments = { input } }
+      end, { desc = "Open daily note", nargs = "*" })
+    end
+    -- enable code lens
+    local function check_codelens_support()
+      local clients
+      if vim.lsp.get_clients then
+        clients = vim.lsp.get_clients {
+          bufnr = bufnr,
+        }
+      else
+        ---@diagnostic disable-next-line: deprecated
+        clients = vim.lsp.get_active_clients {
+          bufnr = bufnr,
+        }
+      end
+      for _, c in ipairs(clients) do
+        if c.server_capabilities.codeLensProvider then
+          return true
+        end
+      end
+      return false
+    end
+
+    vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave", "CursorHold", "LspAttach", "BufEnter" }, {
+      buffer = bufnr,
+      callback = function()
+        if check_codelens_support() then
+          vim.lsp.codelens.refresh { bufnr = 0 }
+        end
+      end,
+    })
+    -- trigger codelens refresh
+    vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
+  end,
+  on_init = nvlsp.on_init,
+}
 
 -- biome
 local lsputil = require "lspconfig.util"
