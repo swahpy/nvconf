@@ -6,7 +6,6 @@ local lspconfig = require "lspconfig"
 
 -- EXAMPLE
 local servers = {
-  "cssls",
   "basedpyright",
   "biome",
   "emmet_language_server",
