@@ -62,3 +62,20 @@ end, { desc = "Move buf left" })
 map("n", "<Tab>", function()
   tabs.move_buf(1)
 end, { desc = "Move buf right" })
+
+-- toggle checkbox
+local function toggle_checkbox()
+  local line = vim.api.nvim_get_current_line()
+  if line:match "^%s*%-%s%[%s%]%s*" then
+    line = line:gsub("^%s*%-%s%[%s%]%s*", "- [x] ")
+  elseif line:match "^%s*%-%s%[x%]%s*" then
+    line = line:gsub("^(%s*%-%s%[x%]%s*)", "- [ ] ")
+  elseif not line:match "^%s*%-%s%[.*%]%s*" then
+    line = "- [ ] " .. line
+  end
+  vim.api.nvim_set_current_line(line)
+end
+
+map("n", "<leader>cb", function()
+  toggle_checkbox()
+end, { desc = "toggle checkbox" })
