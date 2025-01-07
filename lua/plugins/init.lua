@@ -47,18 +47,14 @@ return {
     },
     opts = function(_, conf)
       conf.mapping = require "configs.nvim-cmp"
-      table.insert(
-        conf.sources,
-        1,
-        {
-          name = "nvim_lsp",
-          option = {
-            markdown_oxide = {
-              keyword_pattern = [[\(\k\| \|\/\|#\)\+]],
-            },
+      table.insert(conf.sources, 1, {
+        name = "nvim_lsp",
+        option = {
+          markdown_oxide = {
+            keyword_pattern = [[\(\k\| \|\/\|#\)\+]],
           },
-        }
-      )
+        },
+      })
     end,
   },
 
@@ -122,38 +118,13 @@ return {
   },
 
   {
-    "MeanderingProgrammer/render-markdown.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-    ---@module 'render-markdown'
-    opts = {
-      file_types = { "markdown" },
-      render_modes = { "n", "c", "t" },
-      heading = {
-        border = true,
-        icons = { " ", " ", " ", " ", " ", " " },
-        signs = { "󰫎 " },
-        width = "block",
-        above = "",
-        below = "",
-      },
-      code = {
-        width = "block",
-        above = "~",
-        below = "~",
-      },
-      link = {
-        custom = {
-          web = { pattern = "^http[s]?://", icon = " ", highlight = "Blue" },
-          python = { pattern = "%.py$", icon = "󰌠 ", highlight = "Green" },
-          local_file = { pattern = "%.md$", icon = "󱅷 ", highlight = "Aqua" },
-        },
-      },
+    "OXY2DEV/markview.nvim",
+    ft = "markdown",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
     },
-    keys = {
-      { "<leader>rm", [[ <cmd> RenderMarkdown <cr> ]], desc = "Render Markdown file" },
-    },
+    opts = require "configs.markview",
   },
 
   {
