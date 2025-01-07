@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "onedark",
+  theme = "everforest",
 
   -- hl_override = {
   -- 	Comment = { italic = true },
@@ -27,6 +27,12 @@ M.term = {
 
 M.nvdash = {
   load_on_startup = true,
+}
+
+M.ui = {
+  telescope = {
+    style = "bordered",
+  }
 }
 
 return M
