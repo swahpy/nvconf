@@ -162,6 +162,22 @@ return {
       "nvim-treesitter/nvim-treesitter", -- optional
       "nvim-tree/nvim-web-devicons", -- optional
     },
+    keys = {
+      { "<leader>ic", [[<cmd> Lspsaga incoming_calls <cr>]], desc = "Lspsaga incoming calls" },
+      { "<leader>oc", [[<cmd> Lspsaga outgoing_calls <cr>]], desc = "Lspsaga outgoing calls" },
+      { "<leader>lc", [[<cmd> Lspsaga code_action <cr>]], desc = "Lspsaga code actions" },
+      { "<leader>dn", [[<cmd> Lspsaga peek_definition <cr>]], desc = "Lspsaga peek definition" },
+      { "<leader>td", [[<cmd> Lspsaga peek_type_definition <cr>]], desc = "Lspsaga peek type definition" },
+      { "<leader>dn", [[<cmd> Lspsaga diagnostic_jump_next <cr>]], desc = "Lspsaga jump to next diagnostic" },
+      { "<leader>dp", [[<cmd> Lspsaga diagnostic_jump_prev <cr>]], desc = "Lspsaga jump to prev diagnostic" },
+      { "<leader>fi", [[<cmd> Lspsaga finder implementation <cr>]], desc = "Lspsaga finder implementation" },
+      { "<leader>fr", [[<cmd> Lspsaga finder references <cr>]], desc = "Lspsaga finder references" },
+      { "<leader>fd", [[<cmd> Lspsaga finder definition <cr>]], desc = "Lspsaga finder definition" },
+      { "<leader>lt", [[<cmd> Lspsaga term_toggle <cr>]], desc = "Lspsaga toggle terminal" },
+      { "<leader>k", [[<cmd> Lspsaga hover_doc <cr>]], desc = "Lspsaga hover documentation" },
+      { "<leader>ol", [[<cmd> Lspsaga outline <cr>]], desc = "Lspsaga show outline of current buffer" },
+      { "<leader>rn", [[<cmd> Lspsaga rename <cr>]], desc = "Lspsaga rename" },
+    },
   },
 
   {
@@ -177,7 +193,7 @@ return {
       buffer_leader_key = "m", -- Per Buffer Mappings
     },
     keys = {
-      {"-"}
-    }
+      { "-" },
+    },
   },
 }
