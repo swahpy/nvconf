@@ -77,11 +77,12 @@ require("mini.extra").setup()
 local hipatterns = require "mini.hipatterns"
 hipatterns.setup {
   highlighters = {
-    -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
-    fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
-    hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
-    todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
-    note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
+    -- Highlight standalone 'fixme', 'hack', 'todo', 'note'
+    fixme = { pattern = "%f[%w]()fixme()%f[%W]", group = "MiniHipatternsFixme" },
+    hack = { pattern = "%f[%w]()hack()%f[%W]", group = "MiniHipatternsHack" },
+    todo = { pattern = "%f[%w]()todo()%f[%W]", group = "MiniHipatternsTodo" },
+    note = { pattern = "%f[%w]()note()%f[%W]", group = "MiniHipatternsNote" },
+    done = { pattern = "%f[%w]()done()%f[%W]", group = "MiniHipatternsNote" },
 
     -- Highlight hex color strings (`#rrggbb`) using that color
     hex_color = hipatterns.gen_highlighter.hex_color(),
