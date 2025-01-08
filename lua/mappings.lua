@@ -67,11 +67,11 @@ end, { desc = "Move buf right" })
 local function toggle_checkbox()
   local line = vim.api.nvim_get_current_line()
   if line:match "^%s*%-%s%[%s%]%s*" then
-    line = line:gsub("^%s*%-%s%[%s%]%s*", "- [x] ")
+    line = line:gsub("^%s*%-%s%[%s%]%s*", "- [x] "):gsub("#todo", "#done")
   elseif line:match "^%s*%-%s%[x%]%s*" then
-    line = line:gsub("^(%s*%-%s%[x%]%s*)", "- [ ] ")
+    line = line:gsub("^(%s*%-%s%[x%]%s*)", "- [ ] "):gsub("#done", "#todo")
   elseif not line:match "^%s*%-%s%[.*%]%s*" then
-    line = "- [ ] " .. line
+    line = "- [ ] " .. line .. " #todo"
   end
   vim.api.nvim_set_current_line(line)
 end
