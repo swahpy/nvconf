@@ -28,6 +28,9 @@ map("i", "<A-k>", "<Up>", { desc = "move up" })
 map("x", "<A-h>", [[<Cmd>lua MiniMove.move_selection('left')<CR>]], { desc = "Move left" })
 map("n", "<A-h>", [[<Cmd>lua MiniMove.move_line('left')<CR>]], { desc = "Move line left" })
 
+map("n", "gh", "^", { desc = "move to first character of current line" })
+map("n", "gl", "$", { desc = "move to last character of current line" })
+
 -- nvimtree
 map({ "n", "t" }, "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 map({ "n", "t" }, "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
