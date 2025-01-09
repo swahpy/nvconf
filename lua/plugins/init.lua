@@ -124,7 +124,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
     },
-    opts = require "configs.markview",
+    opts = require "configs.mark_view",
     config = function(_, opts)
       require("markview").setup(opts)
       require("markview.extras.editor").setup {
