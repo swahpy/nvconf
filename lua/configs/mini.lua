@@ -75,15 +75,17 @@ require("mini.basics").setup {
 require("mini.extra").setup()
 
 local hipatterns = require "mini.hipatterns"
+local get_theme_tb = require("base46").get_theme_tb
+local colors = get_theme_tb "base_30"
 hipatterns.setup {
   highlighters = {
     -- Highlight standalone 'fixme', 'hack', 'todo', 'note'
-    fixme = { pattern = "%f[%w]()fixme()%f[%W]", group = "MiniHipatternsFixme" },
-    hack = { pattern = "%f[%w]()hack()%f[%W]", group = "MiniHipatternsHack" },
-    todo = { pattern = "%f[%w]()todo()%f[%W]", group = "MiniHipatternsTodo" },
-    note = { pattern = "%f[%w]()note()%f[%W]", group = "MiniHipatternsNote" },
-    done = { pattern = "%f[%w]()done()%f[%W]", group = "MiniHipatternsNote" },
-
+    fixme = { pattern = "#()fixme()", group = "MiniHipatternsFixme" },
+    hack = { pattern = "#()hack()", group = "MiniHipatternsHack" },
+    todo = { pattern = "#()todo()", group = hipatterns.compute_hex_color_group(colors.red, "bg") },
+    note = { pattern = "#()note()", group = hipatterns.compute_hex_color_group(colors.orange, "bg") },
+    done = { pattern = "#()done()", group = hipatterns.compute_hex_color_group(colors.green, "bg") },
+    -- #todo #done #note
     -- Highlight hex color strings (`#rrggbb`) using that color
     hex_color = hipatterns.gen_highlighter.hex_color(),
   },
