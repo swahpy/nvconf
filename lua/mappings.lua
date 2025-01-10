@@ -31,6 +31,9 @@ map("n", "<A-h>", [[<Cmd>lua MiniMove.move_line('left')<CR>]], { desc = "Move li
 map("n", "gh", "^", { desc = "move to first character of current line" })
 map("n", "gl", "$", { desc = "move to last character of current line" })
 
+map('c', '<A-j>', '<C-n>', { noremap = true, silent = true })
+map('c', '<A-k>', '<C-p>', { noremap = true, silent = true })
+
 -- nvimtree
 map({ "n", "t" }, "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 map({ "n", "t" }, "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
