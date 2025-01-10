@@ -22,10 +22,19 @@ return {
   {
     "echasnovski/mini.nvim",
     version = false,
-    lazy = false,
+    event = "InsertEnter",
     config = function()
       require "configs.mini"
     end,
+    keys = {
+      {
+        "<leader>ls",
+        function()
+          require("mini.sessions").select()
+        end,
+        desc = "load mini sessions",
+      },
+    },
   },
 
   {

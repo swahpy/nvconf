@@ -99,9 +99,6 @@ session.setup {
   verbose = { read = true },
 }
 local map = vim.keymap.set
-map("n", "<leader>ls", function()
-  session.select()
-end, { desc = "load a session" })
 map("n", "<leader>sd", function()
   local sessions = {}
   local keystr = ""
