@@ -6,27 +6,29 @@ return {
   headings = {
     shift_width = 0,
     heading_1 = {
-      icon = "󰬺 ",
+      align = "center",
+      icon = "󰲠 ",
       hl = "",
+      style = "label",
     },
     heading_2 = {
-      icon = "󰬻 ",
+      icon = "󰲢 ",
       hl = "",
     },
     heading_3 = {
-      icon = "󰬼 ",
+      icon = "󰲤 ",
       hl = "",
     },
     heading_4 = {
-      icon = "󰬽 ",
+      icon = "󰲦 ",
       hl = "",
     },
     heading_5 = {
-      icon = "󰬾 ",
+      icon = "󰲨 ",
       hl = "",
     },
     heading_6 = {
-      icon = "󰬿 ",
+      icon = "󰲪 ",
       hl = "",
     },
   },
