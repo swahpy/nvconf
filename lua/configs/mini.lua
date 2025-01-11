@@ -99,7 +99,7 @@ session.setup {
   verbose = { read = true },
 }
 local map = vim.keymap.set
-map("n", "<leader>sd", function()
+map("n", "<leader>rs", function()
   local sessions = {}
   local keystr = ""
   local n = 0
@@ -119,7 +119,7 @@ map("n", "<leader>sd", function()
   else
     print "Wrong session number!"
   end
-end, { desc = "Delete a session" })
+end, { desc = "remove a session" })
 
 require("mini.splitjoin").setup {
   mappings = {
