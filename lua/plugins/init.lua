@@ -103,30 +103,6 @@ return {
   },
 
   {
-    "brenton-leighton/multiple-cursors.nvim",
-    version = "*", -- Use the latest tagged version
-    opts = {}, -- This causes the plugin setup function to be called
-    keys = {
-      { "<C-Down>", "<Cmd>MultipleCursorsAddDown<CR>", mode = { "n", "i", "x" }, desc = "Add cursor and move down" },
-      { "<C-Up>", "<Cmd>MultipleCursorsAddUp<CR>", mode = { "n", "i", "x" }, desc = "Add cursor and move up" },
-      {
-        "<C-LeftMouse>",
-        "<Cmd>MultipleCursorsMouseAddDelete<CR>",
-        mode = { "n", "i" },
-        desc = "Add or remove cursor",
-      },
-      {
-        "mcA",
-        function()
-          require("multiple-cursors").align()
-        end,
-        mode = { "n", "x" },
-        desc = "Align cursors vertically",
-      },
-    },
-  },
-
-  {
     "OXY2DEV/markview.nvim",
     ft = "markdown",
     dependencies = {
@@ -228,5 +204,14 @@ return {
     keys = {
       { "-" },
     },
+  },
+
+  {
+    "jake-stewart/multicursor.nvim",
+    branch = "1.0",
+    event = "InsertEnter",
+    config = function()
+      require "configs.multicursor"
+    end,
   },
 }
