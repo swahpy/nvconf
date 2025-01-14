@@ -22,8 +22,8 @@ for _, lsp in ipairs(servers) do
     capabilities = nvlsp.capabilities,
   }
 end
--- markdown-oxide
 
+-- markdown-oxide
 lspconfig.markdown_oxide.setup {
   -- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
   -- Create Unresolved File code action, resolving completions for unindexed code blocks, ...

@@ -31,8 +31,8 @@ map("n", "<A-h>", [[<Cmd>lua MiniMove.move_line('left')<CR>]], { desc = "Move li
 map("n", "gh", "^", { desc = "move to first character of current line" })
 map("n", "gl", "$", { desc = "move to last character of current line" })
 
-map('c', '<A-j>', '<C-n>', { noremap = true, silent = true })
-map('c', '<A-k>', '<C-p>', { noremap = true, silent = true })
+map("c", "<A-j>", "<C-n>", { noremap = true, silent = true })
+map("c", "<A-k>", "<C-p>", { noremap = true, silent = true })
 
 -- nvimtree
 map({ "n", "t" }, "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
@@ -88,3 +88,6 @@ end, { desc = "toggle checkbox" })
 
 -- lsp related
 map({ "n", "v" }, "gr", [[ <cmd> Telescope lsp_references <cr>]], { desc = "open telescope lsp references" })
+
+-- show info
+map("n", "<leader>cp", [[ <cmd> echo expand('%:p') <cr> ]], { desc = "show absolute path of current file" })
