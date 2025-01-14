@@ -23,24 +23,26 @@ for _, lsp in ipairs(servers) do
   }
 end
 -- markdown-oxide
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 lspconfig.markdown_oxide.setup {
   -- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
   -- Create Unresolved File code action, resolving completions for unindexed code blocks, ...
-  capabilities = vim.tbl_deep_extend("force", capabilities, {
-    workspace = {
-      didChangeWatchedFiles = {
-        dynamicRegistration = true,
+  capabilities = vim.tbl_deep_extend(
+    "force",
+    require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    {
+      workspace = {
+        didChangeWatchedFiles = {
+          dynamicRegistration = true,
+        },
       },
-    },
-  }),
+    }
+  ),
   on_attach = function(client, bufnr)
     -- setup Markdown Oxide daily note commands
     if client.name == "markdown_oxide" then
       vim.api.nvim_create_user_command("Daily", function(args)
         local input = args.args
-
         vim.lsp.buf.execute_command { command = "jump", arguments = { input } }
       end, { desc = "Open daily note", nargs = "*" })
     end
