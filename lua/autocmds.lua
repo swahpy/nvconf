@@ -17,7 +17,7 @@ autocmd("BufReadPost", {
 })
 
 -- defer textDocument/hover capability to basedpyright
-vim.api.nvim_create_autocmd("LspAttach", {
+autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- show nvdash when all buffers are closed
-vim.api.nvim_create_autocmd("BufDelete", {
+autocmd("BufDelete", {
   callback = function()
     local bufs = vim.t.bufs
     if #bufs == 1 and vim.api.nvim_buf_get_name(bufs[1]) == "" then

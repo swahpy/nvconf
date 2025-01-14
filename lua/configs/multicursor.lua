@@ -19,7 +19,7 @@ map({ "n", "v" }, "<leader><down>", function()
 end)
 
 -- Add or skip adding a new cursor by matching word/selection
-map({ "n", "v" }, "<leader>n", function()
+map({ "n", "v" }, "<leader>nm", function()
   mc.matchAddCursor(1)
 end, { desc = "add next match cursor" })
 map({ "n", "v" }, "<leader>ss", function()

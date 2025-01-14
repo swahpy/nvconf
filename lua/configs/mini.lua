@@ -1,5 +1,5 @@
 local ai = require "mini.ai"
-      local gen_ai_spec = require('mini.extra').gen_ai_spec
+local gen_ai_spec = require("mini.extra").gen_ai_spec
 ai.setup {
   -- Number of lines within which textobject is searched
   n_lines = 500,
@@ -120,6 +120,7 @@ map("n", "<leader>rs", function()
     print "Wrong session number!"
   end
 end, { desc = "remove a session" })
+map("n", "<leader>cs", [[<cmd>lua =vim.v.this_session<cr>]], { desc = "show current session" })
 
 require("mini.splitjoin").setup {
   mappings = {
